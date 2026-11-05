@@ -1,3 +1,17 @@
+import { EditorView, basicSetup } from "codemirror"
+import { python } from "@codemirror/lang-python"
+
+const fixedHeight = EditorView.theme({
+  "&": { height: "200px" },
+  ".cm-scroller": { overflow: "auto" }
+})
+
+const view = new EditorView({
+  doc: "print('Hello')",
+  extensions: [basicSetup, python(), fixedHeight],
+  parent: document.getElementById("terminal-input")
+})
+
 
 /*
  * Sets up the terminal expand/collapse button.
@@ -39,4 +53,9 @@ export function updateCommandTerminal(direction, command)
 
     // Temporary command preview.
     codeDisplay.textContent = `send_command(${hex})`;
+}
+
+export function getCode()
+{
+    return view.state.doc.toString();
 }

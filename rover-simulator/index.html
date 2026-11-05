@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/css/style.css"> 
 </head>
-<body>
+<body>  
 
   <!--left sidebar-->
   <nav id="sidebar">
@@ -35,9 +35,12 @@
 
   <div id="simulator">
 
-    <div id="simulation-area">
-      <h1>Rover Simulation</h1>
-      <p>Godot simulation will appear here.</p>
+    <div id="godot-container">
+      <iframe
+          id="godot-frame"
+          src="/ballSim.html"
+          title="Godot Ball Simulation">
+      </iframe>
     </div>
       
     <div id="rover-controls" class="overlay-panel">
@@ -63,6 +66,8 @@
             <span>Command Terminal</span>
             <button id="expand-terminal" type="button">Expand</button>
         </div>
+
+        <div id="terminal-input"></div>
 
         <div class="terminal-body">
             <p id="command-name">No command selected</p>
